@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Help</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.5.2/math.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <button class="reset-button" onclick="resetForm()">Reset</button>
+        <h1>Math Help</h1>
+        <div class="tabs">
+            <button class="tab-button" onclick="openTab(event, 'solve')">Quadratic Equation</button>
+            <button class="tab-button" onclick="openTab(event, 'derivative')">Find Derivative</button>
+            <button class="tab-button" onclick="openTab(event, 'graph')">Graph Equation</button>
+        </div>
+        <div id="solve" class="tab-content">
+            <form id="quadratic-form">
+                <label for="a">a:</label>
+                <input type="number" id="a" required>
+                <label for="b">b:</label>
+                <input type="number" id="b" required>
+                <label for="c">c:</label>
+                <input type="number" id="c" required>
+                <button type="submit">Solve</button>
+            </form>
+            <div id="result"></div>
+        </div>
+        <div id="derivative" class="tab-content" style="display:none;">
+            <form id="derivative-form">
+                <label for="equation">Equation (e.g., 3x^3 + 2x^2 - x + 5 or sin(x)):</label>
+                <input type="text" id="equation" required placeholder="e.g., 3x^3 + 2x^2 - x + 5 or sin(x)">
+                <button type="submit">Find Derivative</button>
+            </form>
+            <div id="derivative-result"></div>
+        </div>
+        <div id="graph" class="tab-content" style="display:none;">
+            <form id="graph-form">
+                <label for="graph-equation">Equation (e.g., 3x^3 + 2x^2 - x + 5 or sin(x)):</label>
+                <input type="text" id="graph-equation" required placeholder="e.g., 3x^3 + 2x^2 - x + 5 or sin(x)">
+                <button type="submit">Graph</button>
+            </form>
+            <div id="graph-result"></div>
+        </div>
+    </div>
+
+    <!-- The Modal -->
+    <div id="graphModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="graph-container"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
